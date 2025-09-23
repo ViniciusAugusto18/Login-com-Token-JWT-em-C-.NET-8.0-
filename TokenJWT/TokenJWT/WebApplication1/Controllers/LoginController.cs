@@ -8,10 +8,10 @@ namespace WebApplication1.Controllers
     public class LoginController : ControllerBase
     {
 
-        [HttpGet(Name = "Login")]
-        public LoginController()
+        [HttpPost(Name = "Login")]
+        public IActionResult Login([FromBody] LoginRequest request)
         {
-
+            return Ok(request);
         }
 
     }
