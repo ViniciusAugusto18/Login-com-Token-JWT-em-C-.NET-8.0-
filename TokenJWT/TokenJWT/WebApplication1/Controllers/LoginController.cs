@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.DTOs;
 
 namespace WebApplication1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Api/")]
     public class LoginController : ControllerBase
     {
 
-        [HttpPost(Name = "Login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        [HttpPost("Login")]
+        public IActionResult Login([FromBody] UserDTO? userdto)
         {
-            return Ok(request);
+            return Ok(userdto);
         }
 
     }

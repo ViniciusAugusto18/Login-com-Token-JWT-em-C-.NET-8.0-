@@ -1,76 +1,42 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.DTOs;
 
 namespace WebApplication1.Controllers
 {
-    public class UsersController : Controller
+    [ApiController]
+    [Route("Api/")]
+    public class UsersController : ControllerBase
     {
-        [HttpGet(Name = "Users")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index()
+        [HttpGet("Users")]
+
+        public ActionResult GetAll()
         {
-            return View();
+            return Ok();
         }
 
-        [HttpGet(Name = "Users")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Details(int id)
+        [HttpGet("Users{id}")]
+        public ActionResult GetById(int id)
         {
-            return View();
+            return Ok();
         }
-        public ActionResult Create()
+        [HttpPost ("Register")]
+        public ActionResult RegisterUser(UserDTO userDTO)
         {
-            return View();
+             return Ok();
         }
-        [HttpPost (Name = "Users")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPut("Users{id}")]
+        public ActionResult EditUser(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        [HttpPut(Name = "Users")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+                return Ok();
+            
         }
-
-        public ActionResult Delete(int id)
+        [HttpDelete("Users{id}")]
+        public ActionResult DeleteUser(int id)
         {
-            return View();
-        }
-
-        [HttpDelete(Name = "Users")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+                return Ok();
+            
         }
     }
 }
