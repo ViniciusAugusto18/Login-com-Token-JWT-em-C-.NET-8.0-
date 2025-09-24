@@ -13,6 +13,6 @@ namespace WebApplication1.Models
         public string Password { get; private set; }
 
         public string Tenent { get; private set; }
-
+        
     }
 }
