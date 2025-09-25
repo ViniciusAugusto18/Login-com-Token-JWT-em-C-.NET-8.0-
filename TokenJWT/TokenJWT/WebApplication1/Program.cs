@@ -1,5 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using WebApplication1.Infra;
 using WebApplication1.Repository;
 using WebApplication1.Repository.Interface;
+using WebApplication1.Services;
+using WebApplication1.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +15,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<ILoginRepository, LoginRepository>();
+builder.Services.AddDbContext<ConnectionContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString(ConnectionContext.defaultconfig)));
 
+#region  Login 
+builder.Services.AddTransient<ILoginRepository, LoginRepository>();
+builder.Services.AddTransient<ILoginService, LoginService>();
+#endregion
+
+#region Users
+builder.Services.AddTransient<IUsersService, UserService>();
 builder.Services.AddTransient<IUsersRepository, UsersRepository>();
+#endregion
+
 
 var app = builder.Build();
 

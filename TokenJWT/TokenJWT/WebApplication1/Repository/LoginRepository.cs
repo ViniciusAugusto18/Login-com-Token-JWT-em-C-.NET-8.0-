@@ -6,7 +6,11 @@ namespace WebApplication1.Repository
 {
     public class LoginRepository : ILoginRepository
     {
-        private readonly ConnectionContext _context = new ConnectionContext();
+        private readonly ConnectionContext _context;
+        public LoginRepository(ConnectionContext context)
+        {
+            _context = context;
+        }
         public Users? login(Users users)
         {
             

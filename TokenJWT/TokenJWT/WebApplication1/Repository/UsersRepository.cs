@@ -8,7 +8,11 @@ namespace WebApplication1.Repository
 {
     public class UsersRepository : IUsersRepository
     {
-        private readonly ConnectionContext _context = new ConnectionContext();
+        private readonly ConnectionContext _context;
+        public UsersRepository(ConnectionContext context)
+        {
+            _context = context;
+        }
         public void Delete(Guid id)
         {
             var user = _context.users.Find(id);
