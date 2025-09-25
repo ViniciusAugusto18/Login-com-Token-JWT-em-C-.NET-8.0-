@@ -1,5 +1,5 @@
-using WebApplication1.Interface;
 using WebApplication1.Repository;
+using WebApplication1.Repository.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -4,20 +4,14 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
-    public class TokenService
+    public class RefreshTokenService
     {
-        public static object CreateToken(Users user)
+        public static object CreateRefreshToken(Users user)
         {
             var key = Encoding.ASCII.GetBytes(Key.secret);
             var tokenConfig = new SecurityTokenDescriptor
             {
-                Subject = new System.Security.Claims.ClaimsIdentity(new[]
-                {
-                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, user.Name),
-                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Email, user.Email),
-                    new System.Security.Claims.Claim("Tenent", user.Tenent)
-                }),
-                Expires = DateTime.UtcNow.AddHours(2),
+                Expires = DateTime.UtcNow.AddDays(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

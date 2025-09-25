@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using WebApplication1.Infra;
-using WebApplication1.Interface;
 using WebApplication1.Models;
 using System;
+using WebApplication1.Repository.Interface;
 
 namespace WebApplication1.Repository
 {
@@ -18,7 +18,7 @@ namespace WebApplication1.Repository
             }
         }
 
-        public void Edit(Users users)
+        public void Edit(Guid id,Users users)
         {
             var user = _context.users.Find(users.Id);
             if (user != null)

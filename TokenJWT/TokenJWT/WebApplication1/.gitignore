@@ -1,0 +1,60 @@
+﻿# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+out/
+
+# NuGet packages
+*.nupkg
+packages/
+# Se usar PackageReference, geralmente não precisa do packages/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+TestResults/
+*.trx
+
+# OS generated files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Azure / publishing
+*.publishsettings
+PublishProfiles/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Secret / configuration
+appsettings.*.json
+.env
+
+# Node / frontend builds (se houver)
+node_modules/
+wwwroot/dist/

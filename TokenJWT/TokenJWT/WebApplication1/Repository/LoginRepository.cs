@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Infra;
-using WebApplication1.Interface;
 using WebApplication1.Models;
+using WebApplication1.Repository.Interface;
 
 namespace WebApplication1.Repository
 {
